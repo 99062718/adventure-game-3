@@ -2,5 +2,5 @@
 #include "display.hpp"
 
 struct Globals{
-    Display display;
-};
+    Display* display;
+} globals;
