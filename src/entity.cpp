@@ -69,5 +69,8 @@ void Entity::addExp(int exp){
     }
 }
 void Entity::setItem(item* newItem, int bodyPart){
+    if (equipped[bodyPart] == newItem){
+        
+    }
     equipped[bodyPart] = newItem;
 }
