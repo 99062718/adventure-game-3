@@ -77,13 +77,15 @@ void Entity::setItem(item* newItem, int bodyPart){
         return;
     }
 
-    attack -= equipped[bodyPart]->attack;
-    health -= equipped[bodyPart]->health;
-    maxHealth -= equipped[bodyPart]->health;
-    defense -= equipped[bodyPart]->defense;
-    speed -= equipped[bodyPart]->speed;
-    mana -= equipped[bodyPart]->mana;
-    maxMana -= equipped[bodyPart]->mana;
+    if (equipped[bodyPart] != nullptr){
+        attack -= equipped[bodyPart]->attack;
+        health -= equipped[bodyPart]->health;
+        maxHealth -= equipped[bodyPart]->health;
+        defense -= equipped[bodyPart]->defense;
+        speed -= equipped[bodyPart]->speed;
+        mana -= equipped[bodyPart]->mana;
+        maxMana -= equipped[bodyPart]->mana;
+    }
 
     equipped[bodyPart] = newItem;
 
