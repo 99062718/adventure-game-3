@@ -9,5 +9,5 @@ add_subdirectory(src)
 
 add_executable(app ${SOURCES})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -I${CMAKE_CURRENT_LIST_DIR}/include")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -g -fsanitize=address -I${CMAKE_CURRENT_LIST_DIR}/include")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -I${CMAKE_CURRENT_LIST_DIR}/include")

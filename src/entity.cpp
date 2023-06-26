@@ -1,12 +1,13 @@
 #include <memory.h>
 #include <cmath>
+#include <iostream>
 #include "globals.hpp"
 #include "entity.hpp"
 
-Entity::Entity(int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, item* equipped[5]):
+Entity::Entity(int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped):
         health(health), maxHealth(maxHealth), mana(mana), maxMana(maxMana), attack(attack), defense(defense), speed(speed), level(level), exp(exp)
         {
-            memcpy(this->equipped, equipped, 5);
+            this->equipped = *equipped;
         }
 
 int Entity::getHealth(){
@@ -37,7 +38,7 @@ int Entity::getExp(){
     return exp;
 }
 
-item* Entity::getItem(int bodyPart){
+Item* Entity::getItem(int bodyPart){
     return equipped[bodyPart];
 }
 
@@ -71,9 +72,11 @@ void Entity::addExp(int exp){
     }
 }
 
-void Entity::setItem(item* newItem, int bodyPart){
+void Entity::setItem(Item* newItem, int bodyPart){
     if (equipped[bodyPart] == newItem){
-        globals.display->showText(*(newItem->name.c_str()) + " is already equipped"); // if i ever get some kind of memory problem this might be why
+        std::string text = newItem->name;
+        text.append(" is already equipped");
+        globals.display->showText(text.c_str()); // if i ever get some kind of memory problem this might be why
         return;
     }
 

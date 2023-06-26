@@ -2,5 +2,7 @@
 #include "display.hpp"
 
 struct Globals{
-    Display* display;
-} globals;
+    Display* display = nullptr;
+};
+
+Globals extern globals;
