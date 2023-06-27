@@ -4,8 +4,8 @@
 #include "globals.hpp"
 #include "entity.hpp"
 
-Entity::Entity(int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped):
-        health(health), maxHealth(maxHealth), mana(mana), maxMana(maxMana), attack(attack), defense(defense), speed(speed), level(level), exp(exp)
+Entity::Entity(std::string &name, int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped, int position):
+        name(name), health(health), maxHealth(maxHealth), mana(mana), maxMana(maxMana), attack(attack), defense(defense), speed(speed), level(level), exp(exp), position(position)
         {
             this->equipped = *equipped;
         }
@@ -76,7 +76,7 @@ void Entity::setItem(Item* newItem, int bodyPart){
     if (equipped[bodyPart] == newItem){
         std::string text = newItem->name;
         text.append(" is already equipped");
-        globals.display->showText(text.c_str()); // if i ever get some kind of memory problem this might be why
+        globals.display->showText(text.c_str());
         return;
     }
 

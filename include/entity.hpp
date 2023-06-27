@@ -4,13 +4,15 @@
 #include "item.hpp"
 
 class Entity{
-    std::string name;
     int health, maxHealth, mana, maxMana, attack, defense, speed, level, exp;
     std::array<Item*, 5> equipped;
     float attackMulti = 1;
 
 public:
-    Entity(int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped);
+    std::string name;
+    int position;
+
+    Entity(std::string &name, int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped, int position);
 
     int getHealth();
     int getAttack();
