@@ -17,4 +17,5 @@ int main(int argc, char** argv){
     entity.setItem(item, 1);
     delete item;
     delete itemList;
+    delete globals.display;
 }
