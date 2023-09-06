@@ -7,8 +7,8 @@
 
 Globals globals =  {};
 
-int main(int argc, char** argv){
-    globals.display = new VisualDisplay(argc, argv);
+int main(){
+    globals.display = new TextDisplay();
     std::array<Item*, 5>* itemList = new std::array<Item*, 5>{};
     std::string name = "test";
     Entity entity = Entity(name, 1, 1, 1, 1, 1, 1, 1, 1, 1, itemList, 0);
