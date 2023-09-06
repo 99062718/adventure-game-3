@@ -3,7 +3,8 @@
 #include <array>
 #include "item.hpp"
 
-class Entity{
+class Entity
+{
     int health, maxHealth, mana, maxMana, attack, defense, speed, level, exp;
     std::array<Item*, 5> equipped;
     float attackMulti = 1;

@@ -1,11 +1,13 @@
 #include "visualDisplay.hpp"
 #include <iostream>
 
-VisualDisplay::VisualDisplay(){
-    
+VisualDisplay::VisualDisplay()
+{
+
 }
 
-void VisualDisplay::showText(const char* text){
-    
+void VisualDisplay::showText(const char* text)
+{
+
 }
 

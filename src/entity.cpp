@@ -5,82 +5,97 @@
 #include "entity.hpp"
 
 Entity::Entity(std::string &name, int health, int maxHealth, int mana, int maxMana, int attack, int defense, int speed, int level, int exp, std::array<Item*, 5>* equipped, int position):
-        name(name), health(health), maxHealth(maxHealth), mana(mana), maxMana(maxMana), attack(attack), defense(defense), speed(speed), level(level), exp(exp), position(position)
-        {
-            this->equipped = *equipped;
-        }
+    name(name), health(health), maxHealth(maxHealth), mana(mana), maxMana(maxMana), attack(attack), defense(defense), speed(speed), level(level), exp(exp), position(position)
+{
+    this->equipped = *equipped;
+}
 
-int Entity::getHealth(){
+int Entity::getHealth()
+{
     return health;
 }
 
-int Entity::getAttack(){
+int Entity::getAttack()
+{
     return attack;
 }
 
-float Entity::getAttackMulti(){
+float Entity::getAttackMulti()
+{
     return attackMulti;
 }
 
-int Entity::getDefense(){
+int Entity::getDefense()
+{
     return defense;
 }
 
-int Entity::getSpeed(){
+int Entity::getSpeed()
+{
     return speed;
 }
 
-int Entity::getLevel(){
+int Entity::getLevel()
+{
     return level;
 }
 
-int Entity::getExp(){
+int Entity::getExp()
+{
     return exp;
 }
 
-Item* Entity::getItem(int bodyPart){
+Item* Entity::getItem(int bodyPart)
+{
     return equipped[bodyPart];
 }
 
-void Entity::setHealth(int health){
-    
+void Entity::setHealth(int health)
+{
+
     this->health = health;
 }
 
-void Entity::setAttack(int attack){
+void Entity::setAttack(int attack)
+{
     this->attack = attack;
 }
 
-void Entity::setAttackMulti(float attackMulti){
+void Entity::setAttackMulti(float attackMulti)
+{
     this->attackMulti = attackMulti;
 }
 
-void Entity::setDefense(int defense){
+void Entity::setDefense(int defense)
+{
     this->defense = defense;
 }
 
-void Entity::setSpeed(int speed){
+void Entity::setSpeed(int speed)
+{
     this->speed = speed;
 }
 
-void Entity::addExp(int exp){
+void Entity::addExp(int exp)
+{
     this->exp += exp;
-    if(this->exp >= (int)pow(50, level * 0.7)){
+    if(this->exp >= (int)pow(50, level * 0.7)) {
         level++;
         this->exp -= (int)pow(50, level * 0.7);
         // stat upgrades should be here
     }
 }
 
-void Entity::setItem(Item* newItem, int bodyPart){
-    if (equipped[bodyPart] == newItem){
+void Entity::setItem(Item* newItem, int bodyPart)
+{
+    if (equipped[bodyPart] == newItem) {
         std::string text = newItem->name;
         text.append(" is already equipped");
         globals.display->showText(text.c_str());
         return;
     }
 
-    if (equipped[bodyPart] != nullptr){
+    if (equipped[bodyPart] != nullptr) {
         attack -= equipped[bodyPart]->attack;
         health -= equipped[bodyPart]->health;
         maxHealth -= equipped[bodyPart]->health;

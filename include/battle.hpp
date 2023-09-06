@@ -1,9 +1,13 @@
 #pragma once
 #include "grid.hpp"
 
-class Battle{
+class Battle
+{
     Grid* playerGrid;
     Grid* enemyGrid;
 public:
     Battle(Grid* playerGrid, Grid* enemyGrid);
+
+    bool calcMight();
+    
 };

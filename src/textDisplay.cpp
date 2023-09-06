@@ -1,10 +1,12 @@
 #include "textDisplay.hpp"
 #include <stdio.h>
 
-TextDisplay::TextDisplay(){
+TextDisplay::TextDisplay()
+{
 
 }
 
-void TextDisplay::showText(const char* text){
+void TextDisplay::showText(const char* text)
+{
     printf(text);
 }

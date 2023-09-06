@@ -1,7 +1,7 @@
 #pragma once
 #include "display.hpp"
 
-struct Globals{
+struct Globals {
     Display* display = nullptr;
 };
 

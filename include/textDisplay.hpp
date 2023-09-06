@@ -1,7 +1,8 @@
 #pragma once
 #include "display.hpp"
 
-class TextDisplay : public Display{
+class TextDisplay : public Display
+{
 public:
     TextDisplay();
 
